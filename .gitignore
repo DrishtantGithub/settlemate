@@ -1,0 +1,62 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+# virtual environments
+venv/
+venv_sm/
+.venv/
+env/
+
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+._*
+
+# Editors / IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Streamlit UI state
+.streamlit/
+
+# Logs, coverage, caches
+*.log
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+
+# Secrets and env
+.env
+.env.*
+secrets.toml
+*.pem
+*.key
+
+# Excel / data / uploads — DO NOT COMMIT
+*.xls
+*.xlsx
+*.xlsm
+*.xlsb
+*.csv
+*.zip
+
+# Large binaries / intermediate files (add more if needed)
+*.tar.gz
+*.tgz
+
+# Misc
+pip-log.txt
