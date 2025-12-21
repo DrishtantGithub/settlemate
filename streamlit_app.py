@@ -15,6 +15,35 @@ import pandas as pd
 import io, zipfile, re
 from datetime import datetime
 
+import streamlit as st
+
+# --- LOGIN SETUP ---
+st.set_page_config(page_title="SettleMate", layout="wide")
+
+# Simple password protection using Streamlit Secrets
+def check_password():
+    """Returns `True` if the user had a correct password."""
+    def password_entered():
+        """Check if entered password is correct."""
+        if st.session_state["password"] == st.secrets["password"]:
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]  # remove password from memory
+        else:
+            st.session_state["password_correct"] = False
+
+    if "password_correct" not in st.session_state:
+        # First run, show input for password.
+        st.text_input("Enter password:", type="password", on_change=password_entered, key="password")
+        st.stop()
+    elif not st.session_state["password_correct"]:
+        # Password incorrect, show input + error.
+        st.text_input("Enter password:", type="password", on_change=password_entered, key="password")
+        st.error("😕 Password incorrect")
+        st.stop()
+
+check_password()
+
+
 st.set_page_config(page_title="SettleMate - UPI settlement summarizer", layout="wide")
 st.title("SettleMate — UPI Settlement Summarizer")
 st.caption("Upload a ZIP of Excel files (or multiple .xlsx/.xls files). .xls files will be converted to .xlsx automatically before processing.")
