@@ -257,3 +257,4 @@ if uploaded and st.button("Process files"):
 
         csv = out_df.to_csv(index=False, float_format='%.2f').encode('utf-8')
         st.download_button("Download summary CSV", csv, "settlement_summary.csv", "text/csv")
+
