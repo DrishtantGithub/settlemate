@@ -5,3 +5,4 @@ pyexcel
 pyexcel-xls
 pyexcel-xlsx
 numpy
+xlrd==1.2.0
